@@ -132,6 +132,71 @@ for(let i = 0; i < bondFilms.length; i++){
 console.log(oddBonds);
 
 
+// let grossFirst = parseInt(bondFilms[0].gross)
+// console.log(grossFirst);
+// let totalGross = bondFilms[0].gross;
+// for(let i = 0; i < bondFilms.length; i++){
+// 	let grossNumber = parseInt(bondFilms[i].gross);
+// 	totalGross = totalGross += grossNumber;
+// }
+
+// console.log(totalGross);
+
+// while(bondFilms[0].gross.charAt(0) === '$')
+// {
+// 	s = bondFilms[0].gross.substr(1);
+// }
+
+// console.log(bondFilms[0].gross);
+
+const grossArray = [];
+
+for(let i = 0; i < bondFilms.length; i++){
+	grossArray.push(bondFilms[i].gross);
+}
+
+console.log(grossArray);
+
+//remove first character from each string
+//turn each string into a number
+//add numbers
+
+const noMoneyArr = [];
+const grossToNumber = (str) => {
+	for(let i = 0; i < grossArray.length; i++){
+		let noMoneySign = grossArray[i].substr(1, grossArray[i].length - 1);
+		// console.log(noMoneySign);
+		noMoneyArr.push(noMoneySign);
+	}
+}
+grossToNumber();
+console.log(noMoneyArr);
+
+const onlyNumbersArr = [];
+
+const noCommas = (str) => {
+	for(let i = 0; i < noMoneyArr.length; i++){
+	noMoneyArr[i] = noMoneyArr[i].replace(",", "");
+  	noMoneyArr[i] = noMoneyArr[i].replace(",", "");
+  	noMoneyArr[i] = noMoneyArr[i].replace(",", "");
+  	let makeInt = parseInt(noMoneyArr[i]);
+  	onlyNumbersArr.push(makeInt);
+  }
+ }
+
+noCommas();
+console.log(onlyNumbersArr);
+
+let totalSum = 0
+const totalGross = (arr) => {
+	for(let i = 0; i < onlyNumbersArr.length; i++){
+		totalSum = onlyNumbersArr[i] += totalSum;
+	}
+	return totalSum;
+}
+
+console.log(totalGross(totalSum));
+
 
 
 
